@@ -33,6 +33,8 @@ response.onreadystatechange = function() {
             let price = document.createElement("span")
             price.innerHTML = Number(data[i].price)
             price.classList = "price"
+            let egp = document.createElement("span")
+            egp.innerHTML = " EGP"
             let imgCart = document.createElement("img")
             imgCart.className = "add-cart"
             imgCart.setAttribute("src" , "icons/cart.png")
@@ -40,6 +42,7 @@ response.onreadystatechange = function() {
             card.appendChild(cardImage)
             card.appendChild(productName)
             card.appendChild(price)
+            card.appendChild(egp)
             card.appendChild(imgCart)
             page.appendChild(card)
         }
