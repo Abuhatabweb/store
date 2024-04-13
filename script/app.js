@@ -26,7 +26,7 @@ response.onreadystatechange = function() {
             cardImage.className = "card-image"
             let img = document.createElement("img")
             img.className = "card-img"
-            img.setAttribute("src" , `${data[i].src}`)
+            img.setAttribute("src" , `products/${data[i].src}`)
             let productName = document.createElement("div")
             productName.innerHTML = data[i].name
             productName.className = "product-name"
@@ -118,7 +118,7 @@ function updateCart(){
 
 function getFromStorage(){
     if(localStorage.getItem("products-price")){
-        totalPrice.textContent = localStorage.getItem("products-price") +" EGP"
+        totalPrice.textContent = localStorage.getItem("products-price") 
     }
     if (localStorage.getItem("products")){
         let storageData = JSON.parse(window.localStorage.getItem("products"))
@@ -155,8 +155,7 @@ submit.onclick = function(){
     for (let i = 0; i < cartItems.length; i++) {
             items.push(cartItems[i].name)
         }
-    let finalItems = items.toString(" ")
-        console.log(finalItems)
-        window.location.href =`https://wa.me/+201551891064?text=Hallo%20E-commerce%20store%0AI%20want%20to%20order%20this:%0A${finalItems}%20And%20it%20costs:${totalPrice.textContent}`
+    let finalItems = items.toString()
+        window.location.href =`https://wa.me/+201551891064?text=Hallo%20E-commerce%20store%0AI%20want%20to%20order%20this:%0A${finalItems}%0AAnd%20it%20costs:${totalPrice.textContent}`
     console.log(totalPrice.textContent)
 }
